@@ -17,12 +17,9 @@
 resources:
   repositories:
     - repository: templates
-      type: git
-      endpoint: git-hub-endpoint
-      data:
-        url: https://github.com/Terracotta-OSS/cloud-tools.git
-        ref: master
+      type: git   
+      name: TerracottaCI/terracotta
 
 # See cloud-tools repo for optional parameters
 jobs:
-- template: azure/build-templates/maven-common.yml@templates  
+- template: build-templates/maven-common.yml@templates  
