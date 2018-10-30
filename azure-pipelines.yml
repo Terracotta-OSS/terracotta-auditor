@@ -18,6 +18,7 @@ resources:
   repositories:
     - repository: templates
       type: git   
+      name: terracotta
 
 # See cloud-tools repo for optional parameters
 jobs:
