@@ -14,12 +14,14 @@
 # limitations under the License.
 #
 
+# See shared code location for steps and parameters:
+# https://dev.azure.com/TerracottaCI/_git/terracotta
+
 resources:
   repositories:
     - repository: templates
       type: git   
       name: terracotta
 
-# See cloud-tools repo for optional parameters
 jobs:
 - template: build-templates/maven-common.yml@templates  
