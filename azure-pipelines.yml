@@ -17,9 +17,11 @@
 resources:
   repositories:
     - repository: templates
-      type: github
-      name: Terracotta-OSS/cloud-tools
-      endpoint: Terracotta-OSS
+      type: git
+      endpoint: git-hub-endpoint
+      data:
+        url: https://github.com/Terracotta-OSS/cloud-tools.git
+        ref: master
 
 # See cloud-tools repo for optional parameters
 jobs:
