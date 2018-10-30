@@ -19,6 +19,7 @@ resources:
     - repository: templates
       type: github
       name: Terracotta-OSS/cloud-tools
+      endpoint: Terracotta-OSS
 
 # See cloud-tools repo for optional parameters
 jobs:
