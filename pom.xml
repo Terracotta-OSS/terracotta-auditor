@@ -33,9 +33,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.2.0</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -62,12 +62,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.terracotta.test</groupId>
-      <artifactId>test-common</artifactId>
-      <version>5.5-SNAPSHOT</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <build>
@@ -92,12 +86,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <!-- tests -->
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.0</version>
       </plugin>
     </plugins>
   </build>

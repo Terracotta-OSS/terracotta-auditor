@@ -15,12 +15,10 @@
  */
 package org.terracotta.auditor.journal.merge;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 import org.terracotta.auditor.journal.FileJournal;
-
-import com.tc.test.TCExtension;
-import com.tc.test.TempDirectoryHelper;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -28,19 +26,18 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.junit.Assert.assertThat;
 
-@ExtendWith(TCExtension.class)
 public class JournalMergerTest {
-  private TempDirectoryHelper tempDirectoryHelper;
+  @Rule
+  public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
   @Test
   public void mergesJournals() throws Exception {
-    String fileNamePrefix = this.getClass().getSimpleName() + "_mergesJournals_file";
-    File file1 = tempDirectoryHelper.getFile(fileNamePrefix + "1");
-    File file2 = tempDirectoryHelper.getFile(fileNamePrefix + "2");
-    File file3 = tempDirectoryHelper.getFile(fileNamePrefix + "3");
+    File file1 = temporaryFolder.newFile();
+    File file2 = temporaryFolder.newFile();
+    File file3 = temporaryFolder.newFile();
 
     try (FileJournal journal1 = new FileJournal(file1);
          FileJournal journal2 = new FileJournal(file2);
@@ -59,7 +56,7 @@ public class JournalMergerTest {
       journal3.log(7, 9, "OP9", "KEY9", "RESULT9");
     }
 
-    Path output = tempDirectoryHelper.getFile(fileNamePrefix + "_output").toPath();
+    Path output = temporaryFolder.newFile().toPath();
     JournalMerger merger = new JournalMerger(file1, file2, file3);
     merger.mergeTo(output);
 
