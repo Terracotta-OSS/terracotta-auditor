@@ -18,7 +18,7 @@ package org.terracotta.auditor.journal;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.tc.test.DirectoryHelperExtension;
+import com.tc.test.TCExtension;
 import com.tc.test.TempDirectoryHelper;
 
 import java.io.File;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
-@ExtendWith(DirectoryHelperExtension.class)
+@ExtendWith(TCExtension.class)
 public class FileJournalTest {
   private TempDirectoryHelper tempDirectoryHelper;
 
